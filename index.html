@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <title>送你小心心</title>
+    <script>
+        alert("送你小心心");
+    </script>
+</head>
+
+<body>
+    <canvas id="canvas" width="400" height="500">
+    </canvas>
+    <canvas id="canvas1" width="16" height="10" style="display: none;">
+    </canvas>
+</body>
+
+<script>
+    const canvas1 = document.getElementById('canvas1')
+    const ctx1 = canvas1.getContext('2d')
+
+    ctx1.beginPath()
+    ctx1.moveTo(8, 4)
+    ctx1.bezierCurveTo(10, 0, 16, 4, 8, 10)
+    ctx1.moveTo(8, 10)
+    ctx1.bezierCurveTo(0, 4, 6, 0, 8, 4)
+    ctx1.fillStyle = "red";
+    ctx1.fill();
+
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+    ctx.beginPath()
+    ctx.moveTo(200, 250)
+    ctx.bezierCurveTo(250, 150, 400, 250, 200, 400)
+    ctx.moveTo(200, 400)
+    ctx.bezierCurveTo(0, 250, 150, 150, 200, 250)
+    var pat=ctx.createPattern(canvas1,"repeat");
+    ctx.fillStyle = pat;
+    ctx.fill();
+</script>
+
+</html>
